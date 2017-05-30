@@ -5,6 +5,9 @@ var port = process.env.PORT || 3000;
 
 var app = express();
 
+app.use('/index.html', express.static('public'));
+app.use('/damgur', express.static('public'));
+
 app.get('*', function(req, res){
 	res.status(404).send('404');
 });
