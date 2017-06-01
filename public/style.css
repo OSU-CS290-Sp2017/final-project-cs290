@@ -99,8 +99,8 @@ header {
 
 .photo {
   max-width: 300px;
-  max-height:300px;
-  display:block;
+  max-height: 300px;
+  display: block;
 }
 .photo-url{
   display:block;
