@@ -121,3 +121,43 @@ header {
 .photo-info {
   padding: 10px;
 }
+.hidden{
+  display:none;
+}
+#new-meme-backdrop{
+  position:fixed;
+  background-color:rgba(220, 68, 5, 0.50);
+  z-index: 1000;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+}
+#new-meme{
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  z-index:1010;
+  overflow:none;
+  width:auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+#new-meme-link{
+
+}
+#new-meme-subtitle{
+
+}
+#new-meme-cancel{
+
+}
+#new-meme-create{
+
+}
