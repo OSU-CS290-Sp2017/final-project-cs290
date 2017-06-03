@@ -13,8 +13,17 @@ app.set('view engine', 'handlebars');
 app.use('/damgur', express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get(/\/(index([.]html)?)?$/, function (req, res, next) {	
-  res.render('index');
+app.get(/\/(index([.]html)?)?$/, function (req, res, next) {
+
+  var templateArgs = {
+    searchBar: 'visible'
+  };
+
+  res.render('index', templateArgs);
+});
+
+app.get(/\/faq([.]html)?/, function (req, res, next) {
+  res.render('faq');
 });
 
 

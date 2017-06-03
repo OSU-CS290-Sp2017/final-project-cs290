@@ -5,9 +5,11 @@
         <li class="navitem navlink"><a href="/index.html">Home</a></li>
         <li class="navitem navlink"><a href="#">Contributors</a></li>
         <li class="navitem navlink"><a href="/faq.html">FAQ</a></li>
-        <li class="navitem searchBar">
-          <input type="text" id="navbar-searchBar" placeholder="Search photos...">
-        </li>
+		{{#if searchBar}}
+          <li class="navitem searchBar">
+            <input type="text" id="navbar-searchBar" placeholder="Search photos...">
+          </li>
+		{{/if}}
       </ul>
     </nav>
   </header>
