@@ -1,0 +1,36 @@
+{
+  "name": "damgur",
+  "version": "1.0.0",
+  "description": "Basic image captioning website used for cs290 final project.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \\\"Error no test specified\\\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSU-CS290-Sp2017/final-project-cs290.git"
+  },
+  "keywords": [
+    "meme",
+    "generator",
+    "caption",
+    "final",
+    "project",
+    "CS",
+    "web",
+    "dev",
+    "development"
+  ],
+  "author": "Jonathan Jones, Taegan Warren, Jacob VanDomelen, Manason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OSU-CS290-Sp2017/final-project-cs290/issues"
+  },
+  "homepage": "https://github.com/OSU-CS290-Sp2017/final-project-cs290#readme"
+}
