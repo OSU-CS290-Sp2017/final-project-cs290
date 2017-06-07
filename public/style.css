@@ -155,15 +155,57 @@ header {
   background-color: #fff;
   border-radius: 15px;
 }
-#new-meme-link{
 
+.new-meme-element{
+	/*position:relative;
+	left:50px;
+	top:20px;*/
+	margin-left:10px;
+}
+
+#new-meme-link{
+	
+	display:inline;
+	width:70%;
+	margin:auto;
+	margin-left:10px;
+	margin-top:20px;
+}
+#new-meme-image{
+	display:block;
+	max-height:50%;
+	max-width:80%;
+	width:80%;
+	height:50%;
+	margin:auto;
+	margin-top:20px;
 }
 #new-meme-subtitle{
-
+	display:block;
+	margin-left:10%;
 }
-#new-meme-cancel{
-
+#new-meme-subtitle-label{
+	display:block;
+	margin-top:50px;
+	margin-left:10%;
 }
 #new-meme-create{
-
+	margin-left:15px;
+}
+#new-meme-cancel{
+	
+}
+.new-meme-button-container{
+	
+	position:relative;
+	top:100px;
+	left:350px;
+	width:40%;
+}
+.new-meme-button{
+	background-color:white;
+	border-radius:2px;
+	border: 1px solid black;
+	padding:10px;
+	font-size:20px;
 }
