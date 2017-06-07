@@ -1,91 +1,10 @@
-  {{> header}}
+{{> header}}
 
-  <main class="photo-container">
-    <article>
-      <div class="photo-box">
-        <div class="photo">
-          <a class="photo-url" href="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg"><img src="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg" alt=""></a>
-        </div>
-        <div class="photo-info">
-          <p class="photo-subtitle">
-            Doge is love, doge is life.
-          </p>
-          <a class="comment-link" href="#">Comments</a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="photo-box">
-        <div class="photo">
-          <a class="photo-url" href="https://i.ytimg.com/vi/KGk4b2bBIp4/maxresdefault.jpg"><img src="https://i.ytimg.com/vi/KGk4b2bBIp4/maxresdefault.jpg" ></a>
-        </div>
-        <div class="photo-info">
-          <p class="photo-subtitle">
-            Space, the final frontier.
-          </p>
-          <a class="comment-link" href="#">Comments</a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="photo-box">
-        <div class="photo">
-          <a class="photo-url" href="https://i.ytimg.com/vi/RgB_Oy47pv0/maxresdefault.jpg"><img src="https://i.ytimg.com/vi/RgB_Oy47pv0/maxresdefault.jpg" ></a>
-        </div>
-        <div class="photo-info">
-          <p class="photo-subtitle">
-            Beaver memes are the best memes.
-          </p>
-          <a class="comment-link" href="#">Comments</a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="photo-box">
-        <div class="photo">
-          <a class="photo-url" href="https://static.pexels.com/photos/20974/pexels-photo.jpg"><img src="https://static.pexels.com/photos/20974/pexels-photo.jpg" ></a>
-        </div>
-        <div class="photo-info">
-          <p class="photo-subtitle">
-            Forest nearby Oregon State University. Fantastic looking image!
-          </p>
-          <a class="comment-link" href="#">Comments</a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="photo-box">
-        <div class="photo">
-          <a class="photo-url" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Humboldt_Redwoods_vertical_pano.jpg/220px-Humboldt_Redwoods_vertical_pano.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Humboldt_Redwoods_vertical_pano.jpg/220px-Humboldt_Redwoods_vertical_pano.jpg" ></a>
-        </div>
-        <div class="photo-info">
-          <p class="photo-subtitle">
-            Sequioa Tree. One of the largest trees in the world!
-          </p>
-          <a class="comment-link" href="#">Comments</a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="photo-box">
-        <div class="photo">
-          <a class="photo-url" href="http://www.mundhenk.com/photos/panorama/dayton.snow.in.ohio.panorama.2.1.www.mundhenk.com.jpg"><img src="http://www.mundhenk.com/photos/panorama/dayton.snow.in.ohio.panorama.2.1.www.mundhenk.com.jpg" ></a>
-        </div>
-        <div class="photo-info">
-          <p class="photo-subtitle">
-            SUPER wide photo.
-          </p>
-          <a class="comment-link" href="#">Comments</a>
-        </div>
-      </div>
-    </article>
-
-  </main>
+<main class="photo-container">
+  {{#each photos}}
+      {{> photo}}
+  {{/each}}
+</main>
 <div id="new-meme-backdrop" class="hidden">
   <div id="new-meme" class="hidden">
     <label for="new-meme-link">Link to an image</label>
@@ -97,5 +16,3 @@
     <button type="button" id="new-meme-create">Create</button>
   </div>
 </div>
-</body>
-</html>

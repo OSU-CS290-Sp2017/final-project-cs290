@@ -4,6 +4,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var faqData = require('./faqData');
 var contributorData = require('./contributorData');
+var photoData = require('./photoData');
 var port = process.env.PORT || 3000;
 
 var app = express();
@@ -14,6 +15,7 @@ app.set('view engine', 'handlebars');
 
 app.get(/\/(index([.]html)?)?$/, function (req, res, next) {
   var templateArgs = {
+    photos: photoData,
     searchBar: true
   };
   res.render('index', templateArgs);
