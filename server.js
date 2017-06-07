@@ -37,6 +37,20 @@ app.get(/\/(contributors([.]html)?)?$/, function (req, res, next) {
   res.render('contributorPage', template_arguments);
 });
 
+app.get('/:num', function (req, res, next) {
+  var num = req.params.num;
+  var photoDex = photoData[num];
+  if(photoDex) {
+    var template_arguments = {
+      photos: [photoDex],
+      searchBar: false
+    };
+    res.render('index', template_arguments);
+  } else {
+    next();
+  }
+});
+
 app.get('*', function(req, res){
   res.status(404).render('404Page');
 });

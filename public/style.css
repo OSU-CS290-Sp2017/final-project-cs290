@@ -18,7 +18,7 @@ a:hover {
 }
 
 header {
-  /*position: fixed;*/
+  position: fixed;
   min-width: 100%;
 }
 
@@ -91,7 +91,16 @@ header {
 .photo-container {
   display: flex;
   flex-wrap: wrap;
-  /*padding-top: 100px;*/
+  padding-top: 100px;
+}
+
+.faq-container {
+  padding-top: 100px;
+}
+
+.contributor-container {
+  margin: 0px;
+  padding-top: 100px;
 }
 
 .photo-box {

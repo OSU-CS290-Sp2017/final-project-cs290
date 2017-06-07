@@ -1,26 +1,32 @@
 [
   {
     "url": "https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
-    "description": "Doge is love, doge is life."
+    "description": "Doge is love, doge is life.",
+    "index": "/0"
   },
   {
     "url": "https://i.ytimg.com/vi/KGk4b2bBIp4/maxresdefault.jpg",
-    "description": "Space, the final frontier."
+    "description": "Space, the final frontier.",
+    "index": "/1"
   },
   {
     "url": "https://i.ytimg.com/vi/RgB_Oy47pv0/maxresdefault.jpg",
-    "description": "Beaver memes are the best memes."
+    "description": "Beaver memes are the best memes.",
+    "index": "/2"
   },
   {
     "url": "https://static.pexels.com/photos/20974/pexels-photo.jpg",
-    "description": "Forest nearby Oregon State University. Fantastic looking image!"
+    "description": "Forest nearby Oregon State University. Fantastic looking image!",
+    "index": "/3"
   },
   {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Humboldt_Redwoods_vertical_pano.jpg/220px-Humboldt_Redwoods_vertical_pano.jpg",
-    "description": "Sequioa Tree. One of the largest trees in the world!"
+    "description": "Sequioa Tree. One of the largest trees in the world!",
+    "index": "/4"
   },
   {
     "url": "http://www.mundhenk.com/photos/panorama/dayton.snow.in.ohio.panorama.2.1.www.mundhenk.com.jpg",
-    "description": "SUPER wide photo."
+    "description": "SUPER wide photo.",
+    "index": "/5"
   }
 ]
