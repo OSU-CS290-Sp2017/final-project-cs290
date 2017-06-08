@@ -1,7 +1,7 @@
 [
   {
-    "question": "Question:",
-    "answer": "Answer content"
+    "question": "How do I delete an uploaded photo?",
+    "answer": "Click the 'X' icon on the top right of the photo box containing the photo you wish to remove."
   },
   {
     "question": "Question:",
@@ -12,7 +12,7 @@
     "answer": "Answer content"
   },
   {
-    "question": "Question:",
-    "answer": "Answer content"
+    "question": "",
+    "answer": "Probably"
   }
 ]

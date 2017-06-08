@@ -112,6 +112,16 @@ header {
   overflow: auto;
 }
 
+.close-button {
+  float:right;
+  color: #999;
+}
+
+.close-button:hover {
+  color: #dc4405;
+  cursor: pointer;
+}
+
 .photo {
   max-height: 200px;
   display: block;
@@ -173,7 +183,7 @@ header {
 }
 
 #new-meme-link{
-	
+
 	display:inline;
 	width:70%;
 	margin:auto;
@@ -202,10 +212,10 @@ header {
 	margin-left:15px;
 }
 #new-meme-cancel{
-	
+
 }
 .new-meme-button-container{
-	
+
 	position:relative;
 	top:100px;
 	left:350px;
@@ -217,4 +227,28 @@ header {
 	border: 1px solid black;
 	padding:10px;
 	font-size:20px;
+}
+
+.faq-head {
+  display: block;
+  width: 20%;
+  margin: auto;
+}
+
+.faq-title {
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  font-size: 75px;
+  border-bottom: 2px solid black;
+}
+
+.faq-entry {
+  text-align: center;
+  margin: auto;
+  width: 75%;
+}
+
+.faq-question {
+  font-weight: bold;
 }
