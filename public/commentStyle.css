@@ -1,0 +1,245 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0;
+  /*background-image: url(https://www.transparenttextures.com/patterns/black-linen.png);*/
+  background-color: #efefef;
+
+}
+
+
+a {
+  text-decoration: none;
+  color: #999;
+
+}
+
+a:hover {
+  color: #dc4405;
+}
+
+header {
+  position: fixed;
+  min-width: 100%;
+}
+
+.title {
+  margin: 0;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: #dc4405;
+  color: #fff;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  background-image: url(http://enjoycss.com/webshots/hq_0.png);
+  background-blend-mode: overlay;
+}
+
+.title p {
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  bottom: 11px;
+}
+
+.title i {
+  font-size: 50px;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+
+.navbar {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.navlist {
+  margin: 0;
+  padding: 10px 35px
+}
+
+.navitem {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navlink a {
+  color: #fff;
+  font-size: 20px;
+  padding: 4px;
+}
+
+.navlink a:hover {
+  border-radius: 4px;
+  background-color: #353535;
+}
+
+.searchBar {
+  float: right;
+  border: 2px solid #fff;
+  border-radius: 3px;
+}
+
+#navbar-searchBar {
+  border: none;
+  padding-top: 3px;
+}
+
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 100px;
+}
+
+.faq-container {
+  padding-top: 100px;
+}
+
+.contributor-container {
+  margin: 0px;
+  padding-top: 100px;
+}
+
+.photo-box {
+  margin: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 7px 7px 10px rgba(0,0,0,0.4);
+  overflow: auto;
+
+}
+
+.close-button {
+  float:right;
+  color: #999;
+  background: none;
+  border: none;
+  padding: 0px;
+}
+
+.close-button:hover {
+  color: #dc4405;
+  cursor: pointer;
+}
+
+.photo {
+  max-height: 200px;
+  display: block;
+  float: left;
+  padding: 10px;
+}
+.photo-url{
+  display:block;
+}
+
+.photo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 1100px;
+  min-width: 50px;
+  max-height: 200px;
+  min-height: 50px;
+}
+
+.photo-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#add-meme-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-weight: bold;
+  background: none;
+  border: none;
+}
+
+#new-meme-backdrop{
+  position:fixed;
+  background-color:rgba(220, 68, 5, 0.50);
+  z-index: 1000;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+}
+#new-meme{
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  z-index:1010;
+  overflow:none;
+  width:auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.new-meme-element{
+	/*position:relative;
+	left:50px;
+	top:20px;*/
+	margin-left:10px;
+}
+
+#new-meme-link{
+	display:inline;
+	width:70%;
+	margin:auto;
+	margin-left:10px;
+	margin-top:20px;
+}
+#new-meme-image{
+	display:block;
+	max-height:50%;
+	max-width:80%;
+	width:80%;
+	height:50%;
+	margin:auto;
+	margin-top:20px;
+}
+#new-meme-subtitle{
+	display:block;
+	margin-left:10%;
+}
+#new-meme-subtitle-label{
+	display:block;
+	margin-top:50px;
+	margin-left:10%;
+}
+#new-meme-create{
+	margin-left:15px;
+}
+#new-meme-cancel:hover {
+  background-color: #efefef;
+}
+.new-meme-button-container{
+
+	position:relative;
+	top:100px;
+	left:350px;
+	width:40%;
+}
+.new-meme-button{
+	background-color:white;
+	border-radius:2px;
+	border: 1px solid black;
+	padding:10px;
+	font-size:20px;
+}

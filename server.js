@@ -16,7 +16,8 @@ app.set('view engine', 'handlebars');
 app.get(/\/(index([.]html)?)?$/, function (req, res, next) {
   var templateArgs = {
     photos: photoData,
-    searchBar: true
+    searchBar: true,
+    style: "./style.css"
   };
   res.render('index', templateArgs);
 });
@@ -24,7 +25,8 @@ app.get(/\/(index([.]html)?)?$/, function (req, res, next) {
 app.get(/\/(faq([.]html)?)?$/, function (req, res, next) {
   var template_arguments = {
     faqs: faqData,
-    searchBar: false
+    searchBar: false,
+    style: "./style.css"
   };
   res.render('faqPage', template_arguments);
 });
@@ -32,7 +34,8 @@ app.get(/\/(faq([.]html)?)?$/, function (req, res, next) {
 app.get(/\/(contributors([.]html)?)?$/, function (req, res, next) {
   var template_arguments = {
     contributors: contributorData,
-    searchBar: false
+    searchBar: false,
+    style: "./style.css"
   };
   res.render('contributorPage', template_arguments);
 });
@@ -43,7 +46,8 @@ app.get('/:num', function (req, res, next) {
   if(photoDex) {
     var template_arguments = {
       photos: [photoDex],
-      searchBar: false
+      searchBar: false,
+      style: "./commentStyle.css"
     };
     res.render('index', template_arguments);
   } else {
