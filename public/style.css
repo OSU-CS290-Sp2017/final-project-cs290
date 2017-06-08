@@ -198,7 +198,6 @@ header {
 }
 
 #new-meme-link{
-
 	display:inline;
 	width:70%;
 	margin:auto;
@@ -226,8 +225,8 @@ header {
 #new-meme-create{
 	margin-left:15px;
 }
-#new-meme-cancel{
-
+#new-meme-cancel:hover {
+  background-color: #efefef;
 }
 .new-meme-button-container{
 
