@@ -79,7 +79,7 @@ app.get(/\/contributors([.]html)?$/, function (req, res, next) {
 //  Used to view the comments page for a specific meme image
 app.get('/:num', function (req, res, next) {
   var photoIndex = Math.floor(req.params.num);
-  if (photoIndex >= 0 && !isNaN(req.params.num)) {
+  if (photoIndex >= 0 && !isNaN(req.params.num) && photoIndex < photoData.length) {
 
     //Retreives the photo information from the photoData json file
     var num = req.params.num;
@@ -157,9 +157,9 @@ app.get('*', function(req, res){
 app.post('/addMeme', function(req, res, next){
 
 	if(true){
- 
+
 		if(req.body && req.body.url){
-	
+
 			var photo = {
 				url: req.body.url,
 				description: req.body.description,
