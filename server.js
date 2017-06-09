@@ -108,17 +108,23 @@ app.delete('/:num', function(req, res, next) {
 
   //Obtaining the photo data from the photoData json file
   var photoID = '/' + req.params.num;
-  var photo;
   for (var i = 0; i < photoData.length; i++) {
     if (photoData[i].index.trim() === photoID.trim()) {
-      photo = photoData[i];
-
-
+	  photoData.splice(i, 1);
+	  break;
     }
   }
 
-  //Sending back a 200 code when the deletion is finished errorlessly
-  res.status(200).send();
+  //Rewriting the changes to the file
+  fs.writeFile('./photoData.json', JSON.stringify(photoData), function(err) {
+	if (err) {
+	  //Send a 500 code if there is an error
+      res.status(500).send('Unable to remove photo from database');
+	} else {
+	  //Send a 200 code if everything goes right
+      res.status(200).send();
+	}
+  });
 });
 
 //The get method that is called when a url route does not match any of the above routes, or the static files in public.
