@@ -27,6 +27,7 @@ window.onload=function(){
 	}
 
 	function exitMemeAdder() {
+		document.getElementById("new-meme-image").src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/-Insert_image_here-.svg/2000px--Insert_image_here-.svg.png";
 		document.getElementById("new-meme-link").value="";
 		document.getElementById("new-meme-subtitle").value="";
 		document.getElementById("new-meme-backdrop").classList.add("hidden");

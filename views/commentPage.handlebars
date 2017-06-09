@@ -1,0 +1,12 @@
+{{> header}}
+
+<main class="content-container">
+  {{#each photos}}
+      {{> commentPhoto}}
+  {{/each}}
+  <div class="comment-container">
+    {{#each comments}}
+      {{> comment}}
+    {{/each}}
+  </div>
+</main>

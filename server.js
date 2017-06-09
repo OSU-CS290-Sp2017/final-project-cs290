@@ -45,15 +45,16 @@ app.get(/\/(contributors([.]html)?)?$/, function (req, res, next) {
 app.get('/:num', function (req, res, next) {
   var num = req.params.num;
   var photoDex = photoData[num];
+  var commentDex = photoData[num].comments;
   if(photoDex) {
     var template_arguments = {
       photos: [photoDex],
-      searchBar: false,
-      style: "./commentStyle.css",
       addButton: false,
-      newMeme: false
+      searchBar: false,
+      comments: commentDex,
+      style: "./commentStyle.css"
     };
-    res.render('index', template_arguments);
+    res.render('commentPage', template_arguments);
   } else {
     next();
   }
@@ -66,7 +67,10 @@ app.delete('/:num', function(req, res, next) {
 });
 
 app.get('*', function(req, res){
-  res.status(404).render('404Page');
+  var template_arguments = {
+    style: "./style.css"
+  }
+  res.status(404).render('404Page', template_arguments);
 });
 
 app.listen(port, function(){
