@@ -20,11 +20,10 @@ window.onload=function(){
 	}
 
 	function exitMemeAdder() {
+		document.getElementById("new-meme-link").value="";
+		document.getElementById("new-meme-subtitle").value="";
 		document.getElementById("new-meme-backdrop").classList.add("hidden");
 		document.getElementById("new-meme").classList.add("hidden");
 		document.getElementById("new-meme-button-container").classList.add("hidden");
-
-		document.getElementById("new-meme-link").value="";
-		document.getElementById("new-meme-subtitle").value="";
 	}
 }
