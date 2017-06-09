@@ -76,27 +76,33 @@ app.get(/\/contributors([.]html)?$/, function (req, res, next) {
 //  "/####"
 //  Used to view the comments page for a specific meme image
 app.get('/:num', function (req, res, next) {
-  
-  //Retreives the photo information from the photoData json file
-  var num = req.params.num;
-  var photoDex = photoData[num];
-  var commentDex = photoData[num].comments;
+  var photoIndex = Math.floor(req.params.num);
+  if (photoIndex >= 0 && !isNaN(req.params.num)) {
 
-  //If the photo exists
-  if(photoDex) {
+    //Retreives the photo information from the photoData json file
+    var num = req.params.num;
+    var photoDex = photoData[num];
+    var commentDex = photoData[num].comments;
 
-	//Setting up the template arguments
-    var template_arguments = {
-      photo: photoDex,
-      addButton: false,
-      searchBar: false,
-      comments: commentDex,
-      style: "./commentStyle.css"
-    };
+    //If the photo exists
+    if(photoDex) {
 
-    //Rendering the commentPage.handlebars page
-    res.render('commentPage', template_arguments);
-  } else {
+	  //Setting up the template arguments
+      var template_arguments = {
+        photo: photoDex,
+        addButton: false,
+        searchBar: false,
+        comments: commentDex,
+        style: "./commentStyle.css"
+      };
+
+      //Rendering the commentPage.handlebars page
+      res.render('commentPage', template_arguments);
+      } else {
+        next();
+      }
+  }
+  else {
     next();
   }
 });
@@ -106,8 +112,15 @@ app.get('/:num', function (req, res, next) {
 //  Used when clicking the x button on the top right of an image, causing it to be deleted from the website
 app.delete('/:num', function(req, res, next) {
 
+  //Error checking the :num param to see if it is a positive number
+  var photoIndex = Math.floor(req.params.num);
+  if (photoIndex < 0 || isNaN(req.params.num)) {
+    res.status(500).send('Index provided must be a positive integer.')
+	return;
+  }
+
   //Obtaining the photo data from the photoData json file
-  var photoID = '/' + req.params.num;
+  var photoID = '/' + photoIndex;
   for (var i = 0; i < photoData.length; i++) {
     if (photoData[i].index.trim() === photoID.trim()) {
 	  photoData.splice(i, 1);
