@@ -17,6 +17,14 @@ a:hover {
   color: #dc4405;
 }
 
+.title a {
+  color: white;
+}
+
+.title a:hover {
+  color: white;
+}
+
 header {
   position: fixed;
   min-width: 100%;

@@ -60,7 +60,10 @@ app.get('/:num', function (req, res, next) {
 });
 
 app.get('*', function(req, res){
-  res.status(404).render('404Page');
+  var template_arguments = {
+    style: "./style.css"
+  }
+  res.status(404).render('404Page', template_arguments);
 });
 
 app.listen(port, function(){

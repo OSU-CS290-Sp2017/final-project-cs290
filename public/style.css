@@ -214,6 +214,7 @@ header {
 	margin:auto;
 	margin-left:10px;
 	margin-top:20px;
+  font-family: 'Ubuntu', sans-serif;
 }
 #new-meme-image-container{
 	height:50%;
@@ -230,6 +231,7 @@ header {
 	height:auto;
 	margin:none;
 	padding:0;
+  border: 4px dashed gray;
 }
 
 textarea {
@@ -241,6 +243,7 @@ textarea {
   width: 90%;
   align-content: center;
   margin: 5%;
+  font-family: 'Ubuntu', sans-serif;
 }
 #new-meme-subtitle-label{
 	display:block;
@@ -292,4 +295,15 @@ textarea {
 
 .faq-question {
   font-weight: bold;
+}
+
+.a404 {
+  text-align: center;
+  font-size: 100px;
+  margin: 0px;
+  padding-top: 125px;
+}
+
+.a404message {
+  text-align: center;
 }
