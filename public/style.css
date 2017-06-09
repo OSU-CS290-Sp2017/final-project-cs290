@@ -6,11 +6,17 @@ body {
 
 }
 
-
 a {
   text-decoration: none;
   color: #999;
+}
 
+.title a {
+  color: white;
+}
+
+.title a:hover {
+  color: white;
 }
 
 a:hover {
@@ -164,6 +170,10 @@ header {
   border: none;
 }
 
+#add-meme-button:hover {
+  cursor: pointer;
+}
+
 #new-meme-backdrop{
   position:fixed;
   background-color:rgba(220, 68, 5, 0.50);
@@ -180,13 +190,14 @@ header {
   top:0;
   bottom:0;
   z-index:1010;
-  overflow:none;
+  overflow:auto;
   width:auto;
   max-width: 600px;
   min-width: 350px;
   min-height: 300px;
   margin: 40px auto;
   background-color: #fff;
+  border: 10px solid white;
   border-radius: 15px;
 }
 
@@ -209,7 +220,6 @@ header {
 	width:80%;
 	margin:auto;
 	margin-top:20px;
-	border: 1px solid black;
 	padding:0;
 }
 #new-meme-image{
@@ -221,9 +231,16 @@ header {
 	margin:none;
 	padding:0;
 }
+
+textarea {
+  resize: none;
+}
+
 #new-meme-subtitle{
 	display:block;
-	margin-left:10%;
+  width: 90%;
+  align-content: center;
+  margin: 5%;
 }
 #new-meme-subtitle-label{
 	display:block;
@@ -233,15 +250,17 @@ header {
 #new-meme-create{
 	margin-left:15px;
 }
+
+#new-meme-create:hover {
+  background-color: #efefef;
+}
+
 #new-meme-cancel:hover {
   background-color: #efefef;
 }
 .new-meme-button-container{
-
-	position:relative;
-	top:100px;
-	left:350px;
-	width:40%;
+  float: right;
+  margin-right: 5%;
 }
 .new-meme-button{
 	background-color:white;
