@@ -4,6 +4,7 @@
   "description": "Basic image captioning website used for cs290 final project.",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0"
   },

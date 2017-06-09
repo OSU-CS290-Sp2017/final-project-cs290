@@ -5,9 +5,11 @@ var exphbs = require('express-handlebars');
 var faqData = require('./faqData');
 var contributorData = require('./contributorData');
 var photoData = require('./photoData');
+var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
 
 var app = express();
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -61,6 +63,36 @@ app.get('/:num', function (req, res, next) {
 
 app.get('*', function(req, res){
   res.status(404).render('404Page');
+});
+
+
+app.post('/addMeme', function(req, res, next){
+
+	if(true){
+ 
+		if(req.body && req.body.url){
+	
+			var photo = {
+				url: req.body.url,
+				description: req.body.description,
+				index: "/"+photoData.length
+			};
+
+			photoData.push(photo);
+
+      fs.writeFile('photoData.json', JSON.stringify(photoData), function(err){
+        if(err){
+          res.status(500).send("Error saving meme");
+        } else{
+          res.status(200).json(photoData.length);
+        }
+      });
+		} else{
+      res.status(400).send("Invalid Photo URL");
+    }
+	} else{
+    next();
+  }
 });
 
 app.listen(port, function(){
