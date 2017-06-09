@@ -94,15 +94,6 @@ header {
   padding-top: 100px;
 }
 
-.faq-container {
-  padding-top: 100px;
-}
-
-.contributor-container {
-  margin: 0px;
-  padding-top: 100px;
-}
-
 .photo-box {
   margin: 30px;
   border-radius: 10px;
@@ -149,97 +140,4 @@ header {
 .photo-info {
   padding: 10px;
   text-align: center;
-}
-
-.hidden {
-  display: none;
-}
-
-#add-meme-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: white;
-  font-weight: bold;
-  background: none;
-  border: none;
-}
-
-#new-meme-backdrop{
-  position:fixed;
-  background-color:rgba(220, 68, 5, 0.50);
-  z-index: 1000;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-}
-#new-meme{
-  position: fixed;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-  z-index:1010;
-  overflow:none;
-  width:auto;
-  max-width: 600px;
-  min-width: 350px;
-  min-height: 300px;
-  margin: 40px auto;
-  background-color: #fff;
-  border-radius: 15px;
-}
-
-.new-meme-element{
-	/*position:relative;
-	left:50px;
-	top:20px;*/
-	margin-left:10px;
-}
-
-#new-meme-link{
-	display:inline;
-	width:70%;
-	margin:auto;
-	margin-left:10px;
-	margin-top:20px;
-}
-#new-meme-image{
-	display:block;
-	max-height:50%;
-	max-width:80%;
-	width:80%;
-	height:50%;
-	margin:auto;
-	margin-top:20px;
-}
-#new-meme-subtitle{
-	display:block;
-	margin-left:10%;
-}
-#new-meme-subtitle-label{
-	display:block;
-	margin-top:50px;
-	margin-left:10%;
-}
-#new-meme-create{
-	margin-left:15px;
-}
-#new-meme-cancel:hover {
-  background-color: #efefef;
-}
-.new-meme-button-container{
-
-	position:relative;
-	top:100px;
-	left:350px;
-	width:40%;
-}
-.new-meme-button{
-	background-color:white;
-	border-radius:2px;
-	border: 1px solid black;
-	padding:10px;
-	font-size:20px;
 }
