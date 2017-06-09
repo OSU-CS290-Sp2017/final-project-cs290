@@ -4,12 +4,16 @@ window.onload=function(){
 	var addButton = document.getElementById("add-meme-button");
 	var newMemeCancel = document.getElementById("new-meme-cancel");
 	var link = document.getElementById("new-meme-link");
-	var searchBar = document.getElementById("navbar-searchBar")
+	var searchBar = document.getElementById("navbar-searchBar");
+	var deleteButton = document.getElementsByClassName('close-button');
 
 	link.addEventListener('keyup', displayImg);
 	addButton.addEventListener('click', addMeme);
 	newMemeCancel.addEventListener('click', exitMemeAdder);
 	searchBar.addEventListener('keyup', filterMeme);
+	for (var i = 0; i < deleteButton.length; i++) {
+		deleteButton[i].addEventListener('click', deleteMeme);
+	}
 
 	function displayImg(){
 		var img = document.getElementById("new-meme-image");
@@ -46,5 +50,10 @@ window.onload=function(){
 				}
 			}
 		}
+	}
+	function deleteMeme(event) {
+		var photoElement = event.target.parentElement.parentElement;
+		var photoID = photoElement.querySelector('a.comment-link').getAttribute('href');
+
 	}
 }
