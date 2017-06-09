@@ -48,12 +48,15 @@ app.get('/:num', function (req, res, next) {
   var commentDex = photoData[num].comments;
   if(photoDex) {
     var template_arguments = {
-      photos: [photoDex],
+      photo: photoDex,
       addButton: false,
       searchBar: false,
       comments: commentDex,
       style: "./commentStyle.css"
     };
+
+    console.log(template_arguments);
+
     res.render('commentPage', template_arguments);
   } else {
     next();
@@ -61,7 +64,16 @@ app.get('/:num', function (req, res, next) {
 });
 
 app.delete('/:num', function(req, res, next) {
-  console.log('in delete with num = ', req.params.num);
+  var photoID = '/' + req.params.num;
+  var photo;
+
+  for (var i = 0; i < photoData.length; i++) {
+    if (photoData[i].index.trim() === photoID.trim()) {
+      photo = photoData[i];
+
+
+    }
+  }
 
   res.status(200).send();
 });
