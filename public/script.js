@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 	}
 });
 
-	
+
 
 	//I assumed that when you press any key while selecting the new meme link, it will display an image?
 
@@ -46,24 +46,24 @@ window.addEventListener('DOMContentLoaded', function(event){
 		document.querySelector(".new-meme-button-container").classList.add("hidden");
 	}
 
-	
+
 	function insertMeme(){
 		var photoUrl = link.value || '';
 		var subtitle = document.getElementById("new-meme-subtitle").value || '';
 		var photoIndex;
-		
+
 		if(photoUrl.trim() && subtitle.trim()){
-			
+
 			photoIndex = storeMeme(photoUrl, subtitle, function(err){ //store to the JSON
-			
+
 			if(err){
 				alert("ERROR: " + err);
-			} 
+			}
 			else if(photoIndex == -1){ //photo wasn't received
 				alert("Photo URL Invalid");
 			}
 			else{
-				
+
 				var memeTemplate = Handlebars.templates.photo;
 				Handlebars.templates.photo;
 				var templateArgs = {
@@ -71,18 +71,18 @@ window.addEventListener('DOMContentLoaded', function(event){
 					description: subtitle,
 					index: photoIndex
 				};
-				
+
 				var memeHTML = memeTemplate(templateArgs);
-				
+
 
 				var photoContainer = document.querySelector('.photo-container');
 				photoContainer.insertAdjeacentHTML('beforeend', memeHTML);
-				
+
 				exitMemeAdder();
 			}
 			});
-			
-		} 
+
+		}
 		else if(!subtitle.trim()){
 			alert("Error, Subtitle must not be blank");
 		}
@@ -90,14 +90,14 @@ window.addEventListener('DOMContentLoaded', function(event){
 			alert("Error, URL must not be blank");
 		}
 	}
-	
+
 	function storeMeme(photoUrl, description, callback){
 		var postURL = "/addMeme";
 
 		var postRequest = new XMLHttpRequest();
 		postRequest.open('POST', postURL);
 		postRequest.setRequestHeader('Content-Type', 'application/json');
-		
+
 		postRequest.addEventListener('load', function(event){
 			var error;
 			var memeIndex = event.target.response;
@@ -105,18 +105,19 @@ window.addEventListener('DOMContentLoaded', function(event){
 				error = event.target.response;
 				memeIndex = -1;
 			}
-			
+
 			callback(error);
-			
-			
+
+
 			return memeIndex;
 		});
-		
+
 		var postBody = {
 			url: photoUrl,
 			description: description
 		};
 		postRequest.send(JSON.stringify(postBody));
+		window.location.reload();
 	}
 
 
@@ -170,5 +171,3 @@ window.addEventListener('DOMContentLoaded', function(event){
 		deleteRequest.send(null);
 		window.location.reload();
 	}
-
-
