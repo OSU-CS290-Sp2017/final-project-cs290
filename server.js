@@ -59,6 +59,12 @@ app.get('/:num', function (req, res, next) {
   }
 });
 
+app.delete('/:num', function(req, res, next) {
+  console.log('in delete with num = ', req.params.num);
+
+  res.status(200).send();
+});
+
 app.get('*', function(req, res){
   res.status(404).render('404Page');
 });

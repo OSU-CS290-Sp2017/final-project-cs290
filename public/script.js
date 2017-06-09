@@ -55,5 +55,19 @@ window.onload=function(){
 		var photoElement = event.target.parentElement.parentElement;
 		var photoID = photoElement.querySelector('a.comment-link').getAttribute('href');
 
+		var deleteRequest = new XMLHttpRequest();
+		deleteRequest.open('DELETE', photoID, true);
+		
+		deleteRequest.onload = function(event) {
+			if (deleteRequest.readyState == 4) {
+				if (deleteRequest.status == 200) {
+					photoElement.classList.add('hidden');
+				} else {
+					console.error(deleteRequest);
+				}
+			}
+		};
+
+		deleteRequest.send(null);
 	}
 }
