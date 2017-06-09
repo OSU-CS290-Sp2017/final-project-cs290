@@ -4,15 +4,23 @@
     "answer": "Click the 'X' icon on the top right of the photo box containing the photo you wish to remove."
   },
   {
-    "question": "Question:",
-    "answer": "Answer content"
+    "question": "How do I view comments that are submitted to a photo?",
+    "answer": "Click on the comments hyperlink at the bottom of a photo."
   },
   {
-    "question": "Question:",
-    "answer": "Answer content"
+    "question": "What if I resize my screen?",
+    "answer": "The photos in the main photo container will adjust their position correctly according to your browser window size."
   },
   {
-    "question": "",
-    "answer": "Probably"
+    "question": "How do I filter through photos?",
+    "answer": "You can enter any text into the search bar and it will automatically filter out the images displayed on the page."
+  },
+  {
+    "question": "How do I add an image?",
+    "answer": "Click the add image icon in the top right, you can then paste in a url and add a caption."
+  },
+  {
+    "question": "Will the website save all of the images that I create?",
+    "answer": "Yes, the website will save all of the images that users add to it collectively."
   }
 ]

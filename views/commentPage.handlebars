@@ -1,0 +1,13 @@
+{{> header}}
+
+<main class="content-container">
+  {{#with photo}}
+    {{> commentPhoto}}
+  {{/with}}
+  <div class="comment-container">
+    {{#each comments}}
+      {{> comment}}
+    {{/each}}
+    <input type="text"></input>
+  </div>
+</main>
