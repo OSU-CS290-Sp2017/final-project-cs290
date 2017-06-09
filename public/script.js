@@ -1,12 +1,15 @@
 window.onload=function(){
+	var memeContainer = document.querySelector('main.photo-container');
 
 	var addButton = document.getElementById("add-meme-button");
 	var newMemeCancel = document.getElementById("new-meme-cancel");
 	var link = document.getElementById("new-meme-link");
+	var searchBar = document.getElementById("navbar-searchBar")
 
 	link.addEventListener('keyup', displayImg);
 	addButton.addEventListener('click', addMeme);
 	newMemeCancel.addEventListener('click', exitMemeAdder);
+	searchBar.addEventListener('keyup', filterMeme);
 
 	function displayImg(){
 		var img = document.getElementById("new-meme-image");
@@ -25,5 +28,23 @@ window.onload=function(){
 		document.getElementById("new-meme-backdrop").classList.add("hidden");
 		document.getElementById("new-meme").classList.add("hidden");
 		document.getElementById("new-meme-button-container").classList.add("hidden");
+	}
+	function filterMeme() {
+		var searchString = searchBar.value.trim().toUpperCase();
+		if (memeContainer.hasChildNodes()) {
+			var memeArray = memeContainer.getElementsByTagName('article');
+			var caption;
+
+			for (var i = 0; i < memeArray.length; i++) {
+				caption = memeArray[i].querySelector('p.photo-subtitle').textContent.trim().toUpperCase();
+
+				if (caption.indexOf(searchString) !== -1) {
+					memeArray[i].classList.remove('hidden');
+				}
+				else {
+					memeArray[i].classList.add('hidden');
+				}
+			}
+		}
 	}
 }
