@@ -1,6 +1,8 @@
 <header>
   <a href="/"><h1 class="title"><i class="material-icons">burst_mode</i><p>Damgur</p></h1></a>
-  <button type="button" id="add-meme-button"><i class="material-icons">add_a_photo</i></button>
+  {{#if addButton}}
+    <button type="button" id="add-meme-button"><i class="material-icons">add_a_photo</i></button>
+  {{/if}}
   <nav class="navbar">
     <ul class="navlist">
       <li class="navitem navlink"><a href="/">Home</a></li>

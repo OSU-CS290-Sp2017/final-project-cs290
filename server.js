@@ -17,7 +17,9 @@ app.get(/\/(index([.]html)?)?$/, function (req, res, next) {
   var templateArgs = {
     photos: photoData,
     searchBar: true,
-    style: "./style.css"
+    style: "./style.css",
+    addButton: true,
+    newMeme: true
   };
   res.render('index', templateArgs);
 });
@@ -47,7 +49,9 @@ app.get('/:num', function (req, res, next) {
     var template_arguments = {
       photos: [photoDex],
       searchBar: false,
-      style: "./commentStyle.css"
+      style: "./commentStyle.css",
+      addButton: false,
+      newMeme: false
     };
     res.render('index', template_arguments);
   } else {
