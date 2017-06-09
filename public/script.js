@@ -8,7 +8,7 @@ window.onload=function(){
 	var link = document.getElementById("new-meme-link");
 	var searchBar = document.getElementById("navbar-searchBar");
 	var deleteButton = document.getElementsByClassName('close-button');
-	
+
 	//Connecting various event listeners to each of the elements collected above
 	link.addEventListener('keyup', displayImg);
 	addButton.addEventListener('click', addMeme);
@@ -75,7 +75,7 @@ window.onload=function(){
 		//Starts a new delete type request.
 		var deleteRequest = new XMLHttpRequest();
 		deleteRequest.open('DELETE', photoID, true);
-		
+
 		//Callback function, used when the request has finished and a response has been sent.
 		deleteRequest.onload = function(event) {
 			if (deleteRequest.readyState == 4) {
@@ -88,5 +88,6 @@ window.onload=function(){
 		};
 
 		deleteRequest.send(null);
+		window.location.reload();
 	}
 }

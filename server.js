@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //  "/index.html"
 //  Used to view the index, or home page for damgur
 app.get(/\/(index([.]html)?)?$/, function (req, res, next) {
-  
+
   //Setting the template arguments
   var template_arguments = {
     photos: photoData,
@@ -43,8 +43,8 @@ app.get(/\/(index([.]html)?)?$/, function (req, res, next) {
 //  "/faq.html"
 //  Used to view the faq page for damgur
 app.get(/\/faq([.]html)?$/, function (req, res, next) {
-  
-  //Setting up the template arguments		
+
+  //Setting up the template arguments
   var template_arguments = {
     faqs: faqData,
     searchBar: false,
@@ -127,7 +127,9 @@ app.delete('/:num', function(req, res, next) {
 	  break;
     }
   }
-
+  for (var i = 0; i < photoData.length; i++) {
+    photoData[i].index="/"+i;
+  }
   //Rewriting the changes to the file
   fs.writeFile('./photoData.json', JSON.stringify(photoData), function(err) {
 	if (err) {
