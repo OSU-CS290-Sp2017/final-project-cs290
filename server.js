@@ -5,6 +5,7 @@ var exphbs = require('express-handlebars');
 var faqData = require('./faqData');
 var contributorData = require('./contributorData');
 var photoData = require('./photoData');
+var commentData = require('./commentData');
 var port = process.env.PORT || 3000;
 
 var app = express();
@@ -48,12 +49,12 @@ app.get('/:num', function (req, res, next) {
   if(photoDex) {
     var template_arguments = {
       photos: [photoDex],
-      searchBar: false,
-      style: "./commentStyle.css",
+      comments: commentData,
       addButton: false,
-      newMeme: false
+      searchBar: false,
+      style: "./commentStyle.css"
     };
-    res.render('index', template_arguments);
+    res.render('commentPage', template_arguments);
   } else {
     next();
   }
