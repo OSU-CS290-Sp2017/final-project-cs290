@@ -26,14 +26,10 @@ a:hover {
 }
 
 header {
-  position: fixed;
+  position: absolute;
   min-width: 100%;
 }
 
-.content-container {
-  margin: 0px;
-  padding: 100px;
-}
 
 .title {
   margin: 0;
@@ -101,10 +97,71 @@ header {
   padding-top: 3px;
 }
 
-.photo-container {
+.content-container {
+  margin: 0px;
+  padding-top: 120px;
+  height: 80%;
   display: flex;
-  flex-wrap: wrap;
-  padding-top: 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.photo-container {
+  padding: 10px;
+  margin: 10px;
+  height: 70%;
+  background-color: white;
+  box-shadow: 7px 7px 10px rgba(0,0,0,0.4);
+  border-radius: 10px;
+
+}
+
+.photo-container img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 75%;
+  width:auto;
+  max-height: 550px;
+}
+
+.comment-container {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  background-color: white;
+  box-shadow: 7px 7px 10px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.single-comment {
+  box-shadow: 7px 7px 10px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+.comment-box {
+  margin: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  display:block;
+  width: 95%;
+  align-content: center;
 }
 
 .photo-box {
