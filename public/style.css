@@ -94,6 +94,13 @@ header {
   padding-top: 3px;
 }
 
+@media screen and (max-width: 520px) {
+  .searchBar {
+    float: none;
+    margin-right: 5px;
+  }
+}
+
 .photo-container {
   display: flex;
   flex-wrap: wrap;
