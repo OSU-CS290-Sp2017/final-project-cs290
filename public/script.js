@@ -10,13 +10,13 @@ window.addEventListener('DOMContentLoaded', function(event){
 	deleteButton = document.getElementsByClassName('close-button');
 
 	//Connecting various event listeners to each of the elements collected above
-	link.addEventListener('keyup', displayImg);
-	addButton.addEventListener('click', addMeme);
-	newMemeCancel.addEventListener('click', exitMemeAdder);
-	newMemeCreate.addEventListener('click', insertMeme);
-	searchBar.addEventListener('keyup', filterMeme);
+	if(link != null){link.addEventListener('keyup', displayImg);}
+	if(addButton != null){addButton.addEventListener('click', addMeme);}
+	if(newMemeCancel != null){newMemeCancel.addEventListener('click', exitMemeAdder);}
+	if(newMemeCreate != null){newMemeCreate.addEventListener('click', insertMeme);}
+	if(searchBar != null){searchBar.addEventListener('keyup', filterMeme);}
 	for (var i = 0; i < deleteButton.length; i++) {
-		deleteButton[i].addEventListener('click', deleteMeme);
+		if(deleteButton != null){deleteButton[i].addEventListener('click', deleteMeme);}
 	}
 });
 
@@ -55,6 +55,8 @@ window.addEventListener('DOMContentLoaded', function(event){
 		if(photoUrl.trim() && subtitle.trim()){
 
 			photoIndex = storeMeme(photoUrl, subtitle, function(err){ //store to the JSON
+			window.location.reload();
+			exitMemeAdder();
 
 			if(err){
 				alert("ERROR: " + err);
@@ -78,7 +80,6 @@ window.addEventListener('DOMContentLoaded', function(event){
 				var photoContainer = document.querySelector('.photo-container');
 				photoContainer.insertAdjeacentHTML('beforeend', memeHTML);
 
-				exitMemeAdder();
 			}
 			});
 
@@ -117,7 +118,6 @@ window.addEventListener('DOMContentLoaded', function(event){
 			description: description
 		};
 		postRequest.send(JSON.stringify(postBody));
-		window.location.reload();
 	}
 
 
@@ -169,5 +169,4 @@ window.addEventListener('DOMContentLoaded', function(event){
 		};
 
 		deleteRequest.send(null);
-		window.location.reload();
 	}
