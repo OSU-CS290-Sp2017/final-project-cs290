@@ -55,7 +55,6 @@ window.addEventListener('DOMContentLoaded', function(event){
 		if(photoUrl.trim() && subtitle.trim()){
 
 			photoIndex = storeMeme(photoUrl, subtitle, function(err){ //store to the JSON
-			window.location.reload();
 			exitMemeAdder();
 
 			if(err){
@@ -67,7 +66,6 @@ window.addEventListener('DOMContentLoaded', function(event){
 			else{
 
 				var memeTemplate = Handlebars.templates.photo;
-				Handlebars.templates.photo;
 				var templateArgs = {
 					url: photoUrl,
 					description: subtitle,
@@ -75,10 +73,10 @@ window.addEventListener('DOMContentLoaded', function(event){
 				};
 
 				var memeHTML = memeTemplate(templateArgs);
-
+				console.log(memeHTML);
 
 				var photoContainer = document.querySelector('.photo-container');
-				photoContainer.insertAdjeacentHTML('beforeend', memeHTML);
+				photoContainer.insertAdjacentHTML('beforeend', memeHTML);
 
 			}
 			});
