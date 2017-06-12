@@ -163,7 +163,7 @@ app.post('/addMeme', function(req, res, next){
 			var photo = {
 				url: req.body.url,
 				description: req.body.description,
-				index: "/"+photoData.length
+				index: "/" + photoData.length
 			};
 
 			photoData.push(photo);

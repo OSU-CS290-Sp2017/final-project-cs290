@@ -50,17 +50,16 @@ window.addEventListener('DOMContentLoaded', function(event){
 	function insertMeme(){
 		var photoUrl = link.value || '';
 		var subtitle = document.getElementById("new-meme-subtitle").value || '';
-		var photoIndex;
 
 		if(photoUrl.trim() && subtitle.trim()){
 
-			photoIndex = storeMeme(photoUrl, subtitle, function(err){ //store to the JSON
+			storeMeme(photoUrl, subtitle, function(err, memeIndex){ //store to the JSON
 			exitMemeAdder();
 
 			if(err){
 				alert("ERROR: " + err);
 			}
-			else if(photoIndex == -1){ //photo wasn't received
+			else if(memeIndex == -1){ //photo wasn't received
 				alert("Photo URL Invalid");
 			}
 			else{
@@ -69,15 +68,16 @@ window.addEventListener('DOMContentLoaded', function(event){
 				var templateArgs = {
 					url: photoUrl,
 					description: subtitle,
-					index: photoIndex
+					index: "/" + memeIndex
 				};
 
 				var memeHTML = memeTemplate(templateArgs);
-				console.log(memeHTML);
 
 				var photoContainer = document.querySelector('.photo-container');
 				photoContainer.insertAdjacentHTML('beforeend', memeHTML);
-
+				
+				var photoCloseButtonArray = photoContainer.getElementsByClassName('close-button')
+				photoCloseButtonArray[photoCloseButtonArray.length - 1].addEventListener('click', deleteMeme)
 			}
 			});
 
@@ -105,10 +105,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 				memeIndex = -1;
 			}
 
-			callback(error);
-
-
-			return memeIndex;
+			callback(error, memeIndex);
 		});
 
 		var postBody = {
