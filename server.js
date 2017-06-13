@@ -7,6 +7,7 @@ var faqData = require('./faqData');
 var contributorData = require('./contributorData');
 var photoData = require('./photoData');
 var bodyParser = require('body-parser');
+var findPhotoIndex = require('./findPhotoIndex')
 var port = process.env.PORT || 3000;
 
 //Starting our application as an express application
@@ -129,9 +130,12 @@ app.delete('/:num', function(req, res, next) {
 	  break;
     }
   }
-  for (var i = 0; i < photoData.length; i++) {
-    photoData[i].index="/"+i;
-  }
+  
+  //The former code that was here that reordered the index wouldn't work because if you change the serverside
+  //data the client side data stays exactly the same. So the links we have for the comments that go to the photos
+  //comments page, would still have the same index number, but if we change the photo data, clicking on the comments
+  //link would either try to load a photo that doesn't exist, or load an entirely different photo.
+
   //Rewriting the changes to the file
   fs.writeFile('./photoData.json', JSON.stringify(photoData), function(err) {
 	if (err) {
@@ -140,7 +144,7 @@ app.delete('/:num', function(req, res, next) {
 	} else {
 	  //Send a 200 code if everything goes right
       res.status(200).send();
-	}
+    }
   });
 });
 
@@ -156,30 +160,27 @@ app.get('*', function(req, res){
 
 app.post('/addMeme', function(req, res, next){
 
-	if(true){
+  if(req.body && req.body.url){
+    
+    var newIndex = findPhotoIndex(photoData, function(sortedData) { photoData = sortedData; });
 
-		if(req.body && req.body.url){
+    var photo = {
+	  url: req.body.url,
+	  description: req.body.description,
+	  index: "/" + newIndex
+    };
 
-			var photo = {
-				url: req.body.url,
-				description: req.body.description,
-				index: "/" + photoData.length
-			};
+	photoData.splice(newIndex, 0, photo);
 
-			photoData.push(photo);
-
-      fs.writeFile('photoData.json', JSON.stringify(photoData), function(err){
-        if(err){
-          res.status(500).send("Error saving meme");
-        } else{
-          res.status(200).json(photoData.length);
-        }
-      });
-		} else{
-      res.status(400).send("Invalid Photo URL");
-    }
-	} else{
-    next();
+    fs.writeFile('photoData.json', JSON.stringify(photoData), function(err){
+      if(err){
+        res.status(500).send("Error saving meme");
+      } else{
+        res.status(200).json(newIndex);
+      }
+    });
+  } else{
+    res.status(400).send("Invalid Photo URL");
   }
 });
 
