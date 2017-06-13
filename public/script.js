@@ -8,12 +8,14 @@ window.addEventListener('DOMContentLoaded', function(event){
 	newMemeCreate = document.getElementById("new-meme-create");
 	searchBar = document.getElementById("navbar-searchBar");
 	deleteButton = document.getElementsByClassName('close-button');
+	commentButton = document.getElementById('createCommentButton');
 
 	//Connecting various event listeners to each of the elements collected above
 	if(link != null){link.addEventListener('keyup', displayImg);}
 	if(addButton != null){addButton.addEventListener('click', addMeme);}
 	if(newMemeCancel != null){newMemeCancel.addEventListener('click', exitMemeAdder);}
 	if(newMemeCreate != null){newMemeCreate.addEventListener('click', insertMeme);}
+	if(commentButton != null){commentButton.addEventListener('click', insertComment);}
 	if(searchBar != null){searchBar.addEventListener('keyup', filterMeme);}
 	for (var i = 0; i < deleteButton.length; i++) {
 		if(deleteButton != null){deleteButton[i].addEventListener('click', deleteMeme);}
@@ -75,7 +77,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 
 				var photoContainer = document.querySelector('.photo-container');
 				photoContainer.insertAdjacentHTML('beforeend', memeHTML);
-				
+
 				var photoCloseButtonArray = photoContainer.getElementsByClassName('close-button')
 				photoCloseButtonArray[photoCloseButtonArray.length - 1].addEventListener('click', deleteMeme)
 			}
@@ -164,4 +166,16 @@ window.addEventListener('DOMContentLoaded', function(event){
 		};
 
 		deleteRequest.send(null);
+	}
+
+	function insertComment() {
+		var commentBox = getElementsByClassName('comment-box');
+		var comment = commentBox.value;
+
+		storeComment(comment, index)
+
+	}
+
+	function storeComment(comment, index, ) {
+
 	}
