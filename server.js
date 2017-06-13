@@ -80,19 +80,19 @@ app.get(/\/contributors([.]html)?$/, function (req, res, next) {
 //  Used to view the comments page for a specific meme image
 app.get('/:num', function (req, res, next) {
   var photoIndex = Math.floor(req.params.num);
-  if (photoIndex >= 0 && !isNaN(req.params.num) && photoIndex < photoData.length) {
+  var indexKey = '/' + photoIndex;
+  if (photoIndex >= 0 && !isNaN(req.params.num) && photoData.some(function(photo) { return photo.index.trim() === indexKey.trim(); })) {
 
     //Retreives the photo information from the photoData json file
-    var num = req.params.num;
-    var photoDex = photoData[num];
-    var commentDex = photoData[num].comments;
+    var photo = photoData.find(function(photo) { return photo.index.trim() === indexKey.trim()});
+    var commentDex = photo.comments;
 
     //If the photo exists
-    if(photoDex) {
+    if(photo) {
 
 	  //Setting up the template arguments
       var template_arguments = {
-        photo: photoDex,
+        photo: photo,
         addButton: false,
         searchBar: false,
         comments: commentDex,
@@ -101,9 +101,10 @@ app.get('/:num', function (req, res, next) {
 
       //Rendering the commentPage.handlebars page
       res.render('commentPage', template_arguments);
-      } else {
-        next();
-      }
+    } else {
+      next();
+    }
+
   }
   else {
     next();
