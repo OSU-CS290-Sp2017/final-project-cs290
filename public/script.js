@@ -1,3 +1,12 @@
+//Global variables used to keep track of certain elements on the page
+var memeContainer;
+var addButton;
+var newMemeCancel;
+var link;
+var newMemeCreate;
+var searchBar;
+var deleteButton;
+var createMemeImg;
 
 window.addEventListener('DOMContentLoaded', function(event){
 	//Container that holds all of the memes
@@ -8,6 +17,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 	newMemeCreate = document.getElementById("new-meme-create");
 	searchBar = document.getElementById("navbar-searchBar");
 	deleteButton = document.getElementsByClassName('close-button');
+	createMemeImg = document.getElementById('new-meme-image');
 
 	//Connecting various event listeners to each of the elements collected above
 	if(link != null){link.addEventListener('keyup', displayImg);}
@@ -20,13 +30,9 @@ window.addEventListener('DOMContentLoaded', function(event){
 	}
 });
 
-
-
-	//I assumed that when you press any key while selecting the new meme link, it will display an image?
-
+	//when the user types something into the create meme image box, it automatically updates with the image they entered
 	function displayImg(){
-		var img = document.getElementById("new-meme-image");
-		img.src = link.value;
+		createMemeImg.src = link.value;
 	}
 
 	//When this function calls, it stops the modal from being hidden, and displays it to the user
