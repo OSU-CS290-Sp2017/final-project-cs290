@@ -17,11 +17,8 @@ window.addEventListener('DOMContentLoaded', function(event){
 	newMemeCreate = document.getElementById("new-meme-create");
 	searchBar = document.getElementById("navbar-searchBar");
 	deleteButton = document.getElementsByClassName('close-button');
-<<<<<<< HEAD
 	commentButton = document.getElementById('createCommentButton');
-=======
 	createMemeImg = document.getElementById('new-meme-image');
->>>>>>> 5d8744adb1fff7fb66bcf294ddec27069cbae1ac
 
 	//Connecting various event listeners to each of the elements collected above
 	if(link != null){link.addEventListener('keyup', displayImg);}
