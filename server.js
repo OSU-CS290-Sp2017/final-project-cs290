@@ -170,7 +170,6 @@ app.post('/addMeme', function(req, res, next){
     var photo = {
 	    url: req.body.url,
 	    description: req.body.description,
-      index: "/" + newIndex
       index: "/" + newIndex,
       comments: []
     };
