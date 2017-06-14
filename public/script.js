@@ -177,7 +177,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 	function insertComment() {
 		var comment = document.querySelector('.comment-box').value;
 		var index = (document.URL).slice(-1);
-		
+
 		if(comment.trim()){
 			storeComment(comment, index, function(err, index){
 				if(err){
@@ -187,11 +187,10 @@ window.addEventListener('DOMContentLoaded', function(event){
 					var templateArgs = {
 						commentContent: comment
 					};
-					
+
 					var commentHTML = commentTemplate(templateArgs);
 					var commentBox = document.querySelector('.comment-box');
 					commentBox.insertAdjacentHTML('beforebegin', commentHTML);
-					
 				}
 			});
 		} else{
@@ -199,7 +198,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 		}
 
 	}
-	
+
 	function storeComment(comment, index, callback){
 		var postURL = "/" + index + "/addComment";
 
@@ -209,7 +208,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 
 		postRequest.addEventListener('load', function(event){
 			var error;
-			
+
 			if(event.target.status !== 200){
 				error = event.target.response;
 			}
