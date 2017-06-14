@@ -131,7 +131,7 @@ app.delete('/:num', function(req, res, next) {
 	  break;
     }
   }
-  
+
   //The former code that was here that reordered the index wouldn't work because if you change the serverside
   //data the client side data stays exactly the same. So the links we have for the comments that go to the photos
   //comments page, would still have the same index number, but if we change the photo data, clicking on the comments
@@ -162,16 +162,18 @@ app.get('*', function(req, res){
 app.post('/addMeme', function(req, res, next){
 
   if(req.body && req.body.url){
-    
-    var newIndex = findPhotoIndex(photoData, function(sortedData) { photoData = sortedData; });
+
+    var newIndex = findPhotoIndex(photoData, function(sortedData) {
+      photoData = sortedData;
+    });
 
     var photo = {
-	  url: req.body.url,
-	  description: req.body.description,
-	  index: "/" + newIndex
+	    url: req.body.url,
+	    description: req.body.description,
+      index: "/" + newIndex
     };
 
-	photoData.splice(newIndex, 0, photo);
+	  photoData.splice(newIndex, 0, photo);
 
     fs.writeFile('photoData.json', JSON.stringify(photoData), function(err){
       if(err){
@@ -184,7 +186,6 @@ app.post('/addMeme', function(req, res, next){
     res.status(400).send("Invalid Photo URL");
   }
 });
-
 
 //Starting the server by booting up a host on the given port
 

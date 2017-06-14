@@ -17,11 +17,8 @@ window.addEventListener('DOMContentLoaded', function(event){
 	newMemeCreate = document.getElementById("new-meme-create");
 	searchBar = document.getElementById("navbar-searchBar");
 	deleteButton = document.getElementsByClassName('close-button');
-<<<<<<< HEAD
 	commentButton = document.getElementById('createCommentButton');
-=======
 	createMemeImg = document.getElementById('new-meme-image');
->>>>>>> 5d8744adb1fff7fb66bcf294ddec27069cbae1ac
 
 	//Connecting various event listeners to each of the elements collected above
 	if(link != null){link.addEventListener('keyup', displayImg);}
@@ -178,13 +175,9 @@ window.addEventListener('DOMContentLoaded', function(event){
 	}
 
 	function insertComment() {
-		var commentBox = getElementsByClassName('comment-box');
-		var comment = commentBox.value;
+		var comment = document.querySelector('.comment-box').value;
+		var index = '/' + (document.URL).slice(-1);
 
-		storeComment(comment, index)
 
-	}
-
-	function storeComment(comment, index, ) {
 
 	}
