@@ -201,9 +201,14 @@ app.post('/:num/addComment', function(req, res, next){
     var comment = {
 	    commentContent: req.body.commentContent
     };
+
+    var photo_data_index = photoData.find(function(photo){
+      return photo.index === '/' + photoIndex;
+    });
+
     console.log(req.body.commentContent);
-    console.log(photoData[photoIndex].comments);
-    photoData[photoIndex].comments.push(comment);
+    console.log(photo_data_index.comments);
+    photo_data_index.comments.push(comment);
 
     fs.writeFile('photoData.json', JSON.stringify(photoData), function(err){
       if(err){

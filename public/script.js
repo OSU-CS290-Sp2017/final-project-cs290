@@ -176,6 +176,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 
 	function insertComment() {
 		var comment = document.querySelector('.comment-box').value;
+		document.querySelector('.comment-box').value = '';
 		var index = (document.URL).slice(-1);
 
 		if(comment.trim()){
