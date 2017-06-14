@@ -176,8 +176,50 @@ window.addEventListener('DOMContentLoaded', function(event){
 
 	function insertComment() {
 		var comment = document.querySelector('.comment-box').value;
-		var index = '/' + (document.URL).slice(-1);
+		var index = (document.URL).slice(-1);
+		
+		if(comment.trim()){
+			storeComment(comment, index, function(err, index){
+				if(err){
+					alert("ERROR: " + err);
+				} else{
+					var commentTemplate = Handlebars.templates.comment;
+					var templateArgs = {
+						commentContent: comment
+					};
+					
+					var commentHTML = commentTemplate(templateArgs);
+					var commentBox = document.querySelector('.comment-box');
+					commentBox.insertAdjacentHTML('beforebegin', commentHTML);
+					
+				}
+			});
+		} else{
+			alert("Error, comment must not be blank");
+		}
 
+	}
+	
+	function storeComment(comment, index, callback){
+		var postURL = "/" + index + "/addComment";
 
+		var postRequest = new XMLHttpRequest();
+		postRequest.open('POST', postURL);
+		postRequest.setRequestHeader('Content-Type', 'application/json');
 
+		postRequest.addEventListener('load', function(event){
+			var error;
+			
+			if(event.target.status !== 200){
+				error = event.target.response;
+			}
+
+			callback(error);
+		});
+
+		var postBody = {
+			commentContent: comment,
+			commentIndex: index
+		};
+		postRequest.send(JSON.stringify(postBody));
 	}

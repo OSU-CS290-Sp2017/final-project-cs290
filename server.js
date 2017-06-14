@@ -187,6 +187,34 @@ app.post('/addMeme', function(req, res, next){
   }
 });
 
+
+app.post('/:num/addComment', function(req, res, next){
+
+
+  //Error checking the :num param to see if it is a positive number
+  var photoIndex = Math.floor(req.params.num);
+  if (photoIndex < 0 || isNaN(req.params.num)) {
+    res.status(500).send('Index provided must be a positive integer.')
+	  return;
+  }
+
+    var comment = {
+	    commentContent: req.body.commentContent
+    };
+    console.log(req.body.commentContent);
+    console.log(photoData[photoIndex].comments);
+    photoData[photoIndex].comments.push(comment);
+
+    fs.writeFile('photoData.json', JSON.stringify(photoData), function(err){
+      if(err){
+        res.status(500).send("Error saving comment");
+      } else{
+        res.status(200).send();
+      }
+    });
+
+});
+
 //Starting the server by booting up a host on the given port
 
 app.listen(port, function(){
