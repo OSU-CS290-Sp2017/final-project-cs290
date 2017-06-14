@@ -11,9 +11,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \\\"Error no test specified\\\" && exit 1",
-	"build": "handlebars views/partials/photo.handlebars -f public/photoTemplate.js",
-  "build": "handlebars views/partials/comment.handlebars -f public/commentTemplate.js",
-	"prestart": "npm run build",
+  "build:comment": "handlebars views/partials/comment.handlebars -f public/commentTemplate.js",
+	"build:photo": "handlebars views/partials/photo.handlebars -f public/photoTemplate.js",
+	"prestart": "npm run build:comment && npm run build:photo",
     "start": "node server.js"
   },
   "repository": {
