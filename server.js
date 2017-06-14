@@ -171,6 +171,8 @@ app.post('/addMeme', function(req, res, next){
 	    url: req.body.url,
 	    description: req.body.description,
       index: "/" + newIndex
+      index: "/" + newIndex,
+      comments: []
     };
 
 	  photoData.splice(newIndex, 0, photo);
@@ -194,7 +196,7 @@ app.post('/:num/addComment', function(req, res, next){
   //Error checking the :num param to see if it is a positive number
   var photoIndex = Math.floor(req.params.num);
   if (photoIndex < 0 || isNaN(req.params.num)) {
-    res.status(500).send('Index provided must be a positive integer.')
+    res.status(500).send('Index provided must be a positive integer.');
 	  return;
   }
 
