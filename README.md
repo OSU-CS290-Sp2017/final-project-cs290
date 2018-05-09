@@ -1,2 +1,2 @@
-# final-project-cs290
+# Damgur
 final-project-cs290 created by GitHub Classroom
